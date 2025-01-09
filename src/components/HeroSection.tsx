@@ -4,12 +4,13 @@ import { Button } from "@/components/ui/button";
 export const HeroSection = () => {
   return (
     <div className="relative isolate overflow-hidden" dir="rtl">
-      {/* Gradient background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-indigo-100 via-white to-white" />
+      {/* Primary gradient background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-gradient-to-tr from-indigo-200 via-white to-purple-100 opacity-70" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(79, 70, 229, 0.1)\"%3E%3C/path%3E%3C/svg%3E')] opacity-20" />
+      </div>
       
-      {/* Background pattern */}
-      <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-right skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
-      
+      {/* Content */}
       <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl font-heebo">
