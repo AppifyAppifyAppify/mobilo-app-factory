@@ -1,13 +1,17 @@
 import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
+  const scrollToLeadForm = () => {
+    const leadForm = document.querySelector('#lead-form');
+    leadForm?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <nav className="border-b" dir="rtl">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              {/* Logo placeholder - replace src with actual logo when available */}
               <img
                 className="h-8 w-auto"
                 src="/placeholder.svg"
@@ -21,10 +25,17 @@ export const Navbar = () => {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <Button variant="ghost" className="font-heebo">
+            <Button 
+              variant="ghost" 
+              className="font-heebo"
+              onClick={scrollToLeadForm}
+            >
               יצירת קשר
             </Button>
-            <Button className="gradient-bg text-white font-heebo">
+            <Button 
+              className="gradient-bg text-white font-heebo"
+              onClick={scrollToLeadForm}
+            >
               התחל עכשיו
             </Button>
           </div>

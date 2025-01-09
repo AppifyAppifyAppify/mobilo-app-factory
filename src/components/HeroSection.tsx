@@ -2,6 +2,11 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
+  const scrollToLeadForm = () => {
+    const leadForm = document.querySelector('#lead-form');
+    leadForm?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="relative isolate overflow-hidden" dir="rtl">
       {/* Primary gradient background */}
@@ -26,7 +31,11 @@ export const HeroSection = () => {
             פתרון מקצועי להמרת אתרי אינטרנט לאפליקציות מובייל מותאמות אישית. פיתוח מהיר, יעיל ואיכותי עבור לקוחותיכם.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Button className="gradient-bg text-white font-heebo" size="lg">
+            <Button 
+              className="gradient-bg text-white font-heebo" 
+              size="lg"
+              onClick={scrollToLeadForm}
+            >
               התחל עכשיו <ArrowRight className="mr-2 h-4 w-4" />
             </Button>
           </div>
