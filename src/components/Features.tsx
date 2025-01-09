@@ -2,18 +2,18 @@ import { Code2, Smartphone, Zap } from "lucide-react";
 
 const features = [
   {
-    name: "ביצועים מקצועיים",
-    description: "אפליקציות native אמיתיות עם ביצועים אופטימליים ותכונות מכשיר מקוריות.",
+    name: "הכנסה נוספת",
+    description: "פתח ערוץ הכנסה חדש על ידי הצעת שירותי המרת אפליקציות ללקוחות קיימים וחדשים.",
     icon: Zap,
   },
   {
-    name: "שליטה מלאה בקוד",
-    description: "גישה מלאה לקוד המקור המותאם אישית לצרכי הלקוח.",
+    name: "אינטגרציה מהירה",
+    description: "שילוב קל ומהיר של השירות בפורטפוליו הקיים שלך, ללא השקעה בתשתיות או צוות נוסף.",
     icon: Code2,
   },
   {
-    name: "פלטפורמות מרובות",
-    description: "פיתוח אפליקציות iOS ו-Android מאתר אינטרנט יחיד.",
+    name: "צמיחה מיידית",
+    description: "הרחב את היצע השירותים שלך והגדל את בסיס הלקוחות באמצעות פתרון מוכח.",
     icon: Smartphone,
   },
 ];
@@ -23,9 +23,12 @@ export const Features = () => {
     <div className="bg-white py-24 sm:py-32 font-heebo" dir="rtl">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">פיתוח מקצועי</h2>
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">הזדמנות עסקית</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            כל מה שצריך כדי להגדיל את העסק שלכם
+            הגדל את ההכנסות שלך עם מינימום מאמץ
+          </p>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            הצע ללקוחות שלך שירות חדשני של המרת אתרים לאפליקציות, ללא צורך בהשקעה בפיתוח או בתשתיות
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
