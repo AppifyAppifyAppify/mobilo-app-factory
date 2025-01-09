@@ -2,14 +2,65 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
 
 export const LeadForm = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    company_name: '',
+    business_email: '',
+    website_url: '',
+    active_clients: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "תודה על פנייתך!",
-      description: "נציג שלנו יצור איתך קשר בהקדם.",
-    });
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .insert([{
+          company_name: formData.company_name,
+          business_email: formData.business_email,
+          website_url: formData.website_url,
+          active_clients: parseInt(formData.active_clients)
+        }]);
+
+      if (error) throw error;
+
+      toast({
+        title: "תודה על פנייתך!",
+        description: "נציג שלנו יצור איתך קשר בהקדם.",
+      });
+
+      // Reset form
+      setFormData({
+        company_name: '',
+        business_email: '',
+        website_url: '',
+        active_clients: ''
+      });
+
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        title: "שגיאה",
+        description: "אירעה שגיאה בשליחת הטופס. אנא נסה שוב.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -23,23 +74,55 @@ export const LeadForm = () => {
         </p>
         <form onSubmit={handleSubmit} className="mx-auto mt-10 max-w-md space-y-6">
           <div>
-            <Label htmlFor="company" className="text-white">שם החברה</Label>
-            <Input id="company" type="text" required className="mt-2" />
+            <Label htmlFor="company_name" className="text-white">שם החברה</Label>
+            <Input 
+              id="company_name" 
+              type="text" 
+              required 
+              className="mt-2"
+              value={formData.company_name}
+              onChange={handleChange}
+            />
           </div>
           <div>
-            <Label htmlFor="email" className="text-white">דוא״ל עסקי</Label>
-            <Input id="email" type="email" required className="mt-2" />
+            <Label htmlFor="business_email" className="text-white">דוא״ל עסקי</Label>
+            <Input 
+              id="business_email" 
+              type="email" 
+              required 
+              className="mt-2"
+              value={formData.business_email}
+              onChange={handleChange}
+            />
           </div>
           <div>
-            <Label htmlFor="website" className="text-white">אתר החברה</Label>
-            <Input id="website" type="url" required className="mt-2" />
+            <Label htmlFor="website_url" className="text-white">אתר החברה</Label>
+            <Input 
+              id="website_url" 
+              type="url" 
+              required 
+              className="mt-2"
+              value={formData.website_url}
+              onChange={handleChange}
+            />
           </div>
           <div>
-            <Label htmlFor="clients" className="text-white">מספר לקוחות פעילים</Label>
-            <Input id="clients" type="number" required className="mt-2" />
+            <Label htmlFor="active_clients" className="text-white">מספר לקוחות פעילים</Label>
+            <Input 
+              id="active_clients" 
+              type="number" 
+              required 
+              className="mt-2"
+              value={formData.active_clients}
+              onChange={handleChange}
+            />
           </div>
-          <Button type="submit" className="w-full gradient-bg">
-            התחל עכשיו
+          <Button 
+            type="submit" 
+            className="w-full gradient-bg"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'שולח...' : 'התחל עכשיו'}
           </Button>
         </form>
       </div>
