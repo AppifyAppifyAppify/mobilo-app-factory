@@ -3,8 +3,14 @@ import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
   return (
-    <div className="relative overflow-hidden bg-white" dir="rtl">
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+    <div className="relative isolate overflow-hidden" dir="rtl">
+      {/* Gradient background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-indigo-100 via-white to-white" />
+      
+      {/* Background pattern */}
+      <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-right skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
+      
+      <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl font-heebo">
             המרת אתרי אינטרנט
