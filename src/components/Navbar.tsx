@@ -1,9 +1,14 @@
 import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const scrollToLeadForm = () => {
     const leadForm = document.querySelector('#lead-form');
     leadForm?.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
   };
 
   return (
@@ -24,7 +29,9 @@ export const Navbar = () => {
               <span className="text-xl font-semibold text-gray-900 font-heebo">Mobilo</span>
             </div>
           </div>
-          <div className="flex items-center gap-4">
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-4">
             <Button 
               variant="ghost" 
               className="font-heebo"
@@ -39,7 +46,42 @@ export const Navbar = () => {
               התחל עכשיו
             </Button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="h-10 w-10 p-0"
+            >
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </Button>
+          </div>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden py-4 space-y-2">
+            <Button 
+              variant="ghost" 
+              className="w-full font-heebo justify-start"
+              onClick={scrollToLeadForm}
+            >
+              יצירת קשר
+            </Button>
+            <Button 
+              className="w-full gradient-bg text-white font-heebo justify-start"
+              onClick={scrollToLeadForm}
+            >
+              התחל עכשיו
+            </Button>
+          </div>
+        )}
       </div>
     </nav>
   );
