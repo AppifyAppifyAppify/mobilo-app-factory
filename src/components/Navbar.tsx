@@ -20,13 +20,13 @@ export const Navbar = () => {
               <img
                 className="h-8 w-auto"
                 src="/lovable-uploads/239f04b7-4f3e-4063-8091-b32902aa7f4a.png"
-                alt="Applify"
+                alt="Appify"
                 width={32}
                 height={32}
               />
             </div>
             <div>
-              <span className="text-xl font-semibold text-gray-900 font-heebo">Applify</span>
+              <span className="text-xl font-semibold text-gray-900 font-heebo">Appify</span>
             </div>
           </div>
 

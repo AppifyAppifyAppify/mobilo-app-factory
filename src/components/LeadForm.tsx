@@ -85,7 +85,7 @@ export const LeadForm = () => {
           התחל להמיר אתרים היום
         </h2>
         <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
-          הצטרף לסוכנויות פיתוח מובילות המשתמשות ב-Applify
+          הצטרף לסוכנויות פיתוח מובילות המשתמשות ב-Appify
         </p>
         <form onSubmit={handleSubmit} className="mx-auto mt-10 max-w-md space-y-6">
           <div>
