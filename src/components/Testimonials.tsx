@@ -1,7 +1,7 @@
 export const Testimonials = () => {
   const testimonials = [
     {
-      content: "המערכת של Mobilo חסכה לנו זמן רב בפיתוח אפליקציות. התוצאות מדהימות!",
+      content: "המערכת של Mobilo Apps חסכה לנו זמן רב בפיתוח אפליקציות. התוצאות מדהימות!",
       author: "יעל כהן",
       role: "מנהלת פיתוח, TechSolutions",
     },
@@ -23,7 +23,7 @@ export const Testimonials = () => {
         <div className="mx-auto max-w-xl text-center">
           <h2 className="text-lg font-semibold leading-8 tracking-tight text-indigo-600">המלצות</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            לקוחות מספרים על Mobilo
+            לקוחות מספרים על Mobilo Apps
           </p>
         </div>
         <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
