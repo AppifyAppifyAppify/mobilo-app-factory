@@ -19,8 +19,9 @@ export default {
     },
     extend: {
       fontFamily: {
+        heebo: ["Heebo", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
-        sans: ["Inter", "sans-serif"],
+        sans: ["Heebo", "Inter", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
