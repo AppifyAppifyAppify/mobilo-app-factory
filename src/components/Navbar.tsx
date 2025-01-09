@@ -14,7 +14,7 @@ export const Navbar = () => {
             <div className="flex-shrink-0">
               <img
                 className="h-8 w-auto"
-                src="/placeholder.svg"
+                src="/lovable-uploads/7f135bf4-6221-4681-a42a-1b71c62d7d68.png"
                 alt="Mobilo"
                 width={32}
                 height={32}
