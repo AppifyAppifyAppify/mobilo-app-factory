@@ -3,11 +3,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const LeadForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(() => {
+    // Initialize from localStorage on component mount
+    return localStorage.getItem('leadFormSubmitted') === 'true';
+  });
   const [formData, setFormData] = useState({
     company_name: '',
     business_email: '',
@@ -44,7 +47,9 @@ export const LeadForm = () => {
         description: "נציג שלנו יצור איתך קשר בהקדם.",
       });
 
+      // Set both state and localStorage
       setIsSubmitted(true);
+      localStorage.setItem('leadFormSubmitted', 'true');
 
     } catch (error) {
       console.error('Error:', error);
