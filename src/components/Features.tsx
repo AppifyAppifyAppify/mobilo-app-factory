@@ -2,30 +2,30 @@ import { Code2, Smartphone, Zap } from "lucide-react";
 
 const features = [
   {
-    name: "Native Performance",
-    description: "True native apps with optimal performance and native device features.",
+    name: "ביצועים מקצועיים",
+    description: "אפליקציות native אמיתיות עם ביצועים אופטימליים ותכונות מכשיר מקוריות.",
     icon: Zap,
   },
   {
-    name: "Code Control",
-    description: "Full access to the generated native code for customization.",
+    name: "שליטה מלאה בקוד",
+    description: "גישה מלאה לקוד המקור המותאם אישית לצרכי הלקוח.",
     icon: Code2,
   },
   {
-    name: "Multi-Platform",
-    description: "Generate both iOS and Android apps from a single website.",
+    name: "פלטפורמות מרובות",
+    description: "פיתוח אפליקציות iOS ו-Android מאתר אינטרנט יחיד.",
     icon: Smartphone,
   },
 ];
 
 export const Features = () => {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white py-24 sm:py-32" dir="rtl">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Developer First</h2>
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">פיתוח מקצועי</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Everything you need to scale your agency
+            כל מה שצריך כדי להגדיל את העסק שלכם
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
