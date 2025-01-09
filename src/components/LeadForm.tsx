@@ -7,6 +7,7 @@ import { useState } from "react";
 
 export const LeadForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     company_name: '',
     business_email: '',
@@ -43,13 +44,7 @@ export const LeadForm = () => {
         description: "נציג שלנו יצור איתך קשר בהקדם.",
       });
 
-      // Reset form
-      setFormData({
-        company_name: '',
-        business_email: '',
-        website_url: '',
-        active_clients: ''
-      });
+      setIsSubmitted(true);
 
     } catch (error) {
       console.error('Error:', error);
@@ -62,6 +57,21 @@ export const LeadForm = () => {
       setIsSubmitting(false);
     }
   };
+
+  if (isSubmitted) {
+    return (
+      <div id="lead-form" className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 font-heebo" dir="rtl">
+        <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 text-center">
+          <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            תודה רבה על פנייתך!
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-center text-lg leading-8 text-gray-300">
+            נציג שלנו יצור איתך קשר בהקדם האפשרי כדי לדון באפשרויות שיתוף הפעולה.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div id="lead-form" className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 font-heebo" dir="rtl">
